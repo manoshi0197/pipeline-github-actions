@@ -37,23 +37,23 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Init
-        working-directory: ./Parent_Module
+        working-directory: ./parent_module
         run: terraform init
 
       - name: Terraform Format Check
-        working-directory: ./Parent_Module
+        working-directory: ./parent_module
         run: terraform fmt -check -recursive
 
       - name: Terraform Validate
-        working-directory: ./Parent_Module
+        working-directory: ./parent_module
         run: terraform validate
 
       # - name: Terraform Security Scan
-      #   working-directory: ./Parent_Module
+      #   working-directory: ./parent_module
       #   run: tfsec .
 
       - name: Terraform Plan
-        working-directory: ./Parent_Module
+        working-directory: ./parent_module
         run: |
           terraform plan -input=false -no-color -out=tfplan
           terraform show -no-color tfplan
@@ -80,9 +80,9 @@ jobs:
           terraform_wrapper: false
 
       - name: Terraform Init
-        working-directory: ./Parent_Module
+        working-directory: ./parent_module
         run: terraform init
 
       - name: Terraform Apply
-        working-directory: ./Parent_Module
+        working-directory: ./parent_module
         run: terraform apply -auto-approve
